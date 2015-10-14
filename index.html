@@ -11,7 +11,7 @@
 	<script>
 $(function(){
 
-			var scene, camera, renderer, loader, mesh, material;
+var scene, camera, renderer, loader, mesh, material;
 var group;
  
 init();
@@ -21,8 +21,12 @@ function init() {
  
     scene = new THREE.Scene();
  
-    camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 10000 );
-    camera.position.z = 5;
+    camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.4, 5000 );
+    camera.position.z = 14;
+    camera.position.y = 10;
+
+    camera.inPerspectiveMode = true;
+    camera.inOrthographicMode = false;
  
     //set background to have transparency - alpha: true
     renderer = new THREE.WebGLRenderer({ alpha: true });
@@ -30,38 +34,58 @@ function init() {
  
     document.getElementById("plot").appendChild(renderer.domElement);
  
- 	var textura = new THREE.ImageUtils.loadTexture('img/muro.jpg');
- 	textura.wrapS = THREE.RepeatwWrapping;
- 	textura.wrapT = THREE.RepeatwWrapping;
- 	textura.repeat.set(4,4);
  	
-    material = new THREE.MeshBasicMaterial({
-    	map: textura,
-    	side: THREE.DoubleSide
-    });
- 
-    group = new THREE.Object3D();
  
     var loader = new THREE.JSONLoader();
-    loader.load('objetos/untitled.json', modelLoadedCallback);
-
+    loader.load('objetos/zapato1.json', modelLoadedCallback);
+    var gridXZ = new THREE.GridHelper(100, 10);
+    gridXZ.setColors( new THREE.Color(0xFFC0CB), new THREE.Color(0x8f8f8f) );
+    gridXZ.position.set(0,0,0 );
+    scene.add(gridXZ);
     
- 	var light = new THREE.AmbientLight(0xffffff);
-    scene.add(light);
+
+    var axes = new THREE.AxisHelper(2);
+    scene.add(axes);
+ 	
 }
  
 function modelLoadedCallback(geometry) {
+
+    var textura = new THREE.ImageUtils.loadTexture('img/muro.jpg');
+    textura.minFilter = THREE.NearestFilter;
+    
+
+
+
+    for ( var i = 0; i < geometry.faces.length; i ++ ) {
+        geometry.faces[ i ].color.setHex( Math.random() * 0xffffff );
+    }
+
+
+    var material = new THREE.MeshLambertMaterial( { 
+        map: textura
+    } );
  
-        mesh = new THREE.Mesh( geometry, material );
- 
-        group.add(mesh);
-        scene.add( group );
- 
+    mesh = new THREE.Mesh( geometry, material );
+    mesh.position.y=0;
+
+    scene.add(mesh);
+
+    camera.lookAt(mesh.position);
+
+
+    var ambLight = new THREE.AmbientLight(0x404040);
+    scene.add(ambLight);
+
+    
+        
+    console.log(mesh.position);
 }
  
 function render() {
+
     requestAnimationFrame(render);
-    mesh.rotation.y += 0.05;
+    mesh.rotation.y += 0.005;
     renderer.render(scene, camera);
  
 }
