@@ -1,26 +1,8 @@
-.plataforma{
+.vistabasica img{
 	position: absolute;
-	top: 150px;
-	height: 250px;
-	width: 550px;
-	background-image: url("../img/plataforma.png");
-	z-index: 1;
+	width: 600px !important;
+	height: 450px !important;
 }
-.capellada{
-	position: absolute;	
-	height: 350px;
-	width: 570px;
-	background-image: url("../img/capellada.png");
-	background-repeat: no-repeat;
-	z-index: 2;
-	opacity: 0.5;
-}
-.adornos{
-	position: absolute;	
-	height: 350px;
-	width: 570px;
-	background-image: url("../img/capellada.png");
-	background-repeat: no-repeat;
-	z-index: 3;
-	opacity: 0.5;
+.superior{
+	z-index: 99;
 }
