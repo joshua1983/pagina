@@ -1,6 +1,7 @@
+
 $(document).ready(function (){
-    // Seccion de adornos
-    
+
+
     
      $("#sel_color").on('change',function(){
         
@@ -35,11 +36,17 @@ function cambiarAdornos(){
     $("#img_min_2").attr("src","img/min/adornos/correarita_4_0001.png");
     $("#img_min_3").attr("src","img/min/adornos/correitabar1.png");
     
+    $("#div_min_1").addClass("thumbnail");
+    $("#div_min_2").addClass("thumbnail");
+    $("#div_min_3").addClass("thumbnail");
+    
+    
     // cuando haga click en la imagen
     $("#img_min_1").unbind('click');
     $("#img_min_1").on('click',function(){
         $("#img_adorno1").attr("src","img/adornos/correamercedes_4_0001.png");
         $("#img_adorno2").attr("src","img/adornos/hebillatobillo_119_0001.png");
+        ocultarMenu();
     });
     
     
@@ -47,12 +54,14 @@ function cambiarAdornos(){
     $("#img_min_2").on('click',function(){
         $("#img_adorno1").attr("src","img/adornos/hebillaempeineyt_119_0000.png");
         $("#img_adorno2").attr("src","img/adornos/correarita_4_0001.png");
+        ocultarMenu();
     });
     
     $("#img_min_3").unbind('click');
     $("#img_min_3").on('click',function(){
         $("#img_adorno1").attr("src","img/adornos/hebillaempeineyt_119_0001.png");
         $("#img_adorno2").attr("src","img/adornos/correatbar_4_0001.png");
+        ocultarMenu();
     });
 }
 
@@ -63,21 +72,28 @@ function cambiarHerrajes(){
     $("#img_min_2").attr("src","img/min/herrajes/ad2_3_0001.png");
     $("#img_min_3").attr("src","img/min/herrajes/ad6_4_0001.png");
     
+    $("#div_min_1").addClass("thumbnail");
+    $("#div_min_2").addClass("thumbnail");
+    $("#div_min_3").addClass("thumbnail");
+    
     // cuando haga click en la imagen
     $("#img_min_1").unbind('click');
     $("#img_min_1").on('click',function(){
         $("#img_accessorios").attr("src","img/accesorios/ad1_66_0001.png");
+        ocultarMenu();
     });
     
     
     $("#img_min_2").unbind('click');
     $("#img_min_2").on('click',function(){
         $("#img_accessorios").attr("src","img/accesorios/ad2_3_0001.png");
+        ocultarMenu();
     });
     
     $("#img_min_3").unbind('click');
     $("#img_min_3").on('click',function(){
         $("#img_accessorios").attr("src","img/accesorios/ad6_4_0001.png");
+        ocultarMenu();
     });
 }
 
@@ -88,6 +104,10 @@ function cambiarCapellada(){
     $("#img_min_2").attr("src","img/min/capellada/pala_5_0001.png");
     $("#img_min_3").attr("src","img/min/capellada/pala_7_0001.png");
     
+    $("#div_min_1").addClass("thumbnail");
+    $("#div_min_2").addClass("thumbnail");
+    $("#div_min_3").addClass("thumbnail");
+    
     // desvinculo la funcion para no acumular eventos
     $("#img_min_1").unbind('click');
     
@@ -96,7 +116,7 @@ function cambiarCapellada(){
         $("#img_pala").attr("src","");
         $("#img_plantilla").attr("src","img/capellada/plantilla_4_0001.png");
         $("#img_pala").attr("src","img/capellada/pala_4_0001.png");
-    
+        ocultarMenu();
     });
     
     
@@ -106,6 +126,7 @@ function cambiarCapellada(){
         
         $("#img_plantilla").attr("src","img/capellada/plantilla_4_0001.png");
         $("#img_pala").attr("src","img/capellada/pala_5_0001.png");
+        ocultarMenu();
         
     });
     
@@ -115,6 +136,26 @@ function cambiarCapellada(){
         
         $("#img_plantilla").attr("src","img/capellada/plantilla_5_0001.png");
         $("#img_pala").attr("src","img/capellada/pala_7_0001.png");
+        ocultarMenu();
         
     });
+}
+
+function ocultarMenu(){
+    if (isMobile() == 1){
+        $("#img_min_1").attr("src","");
+        $("#img_min_2").attr("src","");
+        $("#img_min_3").attr("src","");
+    }
+}
+
+function isMobile(){
+    return (
+        (navigator.userAgent.match(/Android/i)) ||
+        (navigator.userAgent.match(/webOS/i)) ||
+        (navigator.userAgent.match(/iPhone/i)) ||
+        (navigator.userAgent.match(/iPod/i)) ||
+        (navigator.userAgent.match(/iPad/i)) ||
+        (navigator.userAgent.match(/BlackBerry/))
+    );
 }
