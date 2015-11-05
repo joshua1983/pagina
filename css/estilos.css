@@ -1,38 +1,21 @@
-@media (max-width: 800px) and (min-width: 300px) {
-	.vistabasica {
-		position: relative;
-		width: 300px !important;
-		height: 150px !important;
-		float: left;
-		left: 5px;
-	}
-	.vistaminiatura {
-		position: relative;
-		width: 100px !important;
-		height: 100px !important;
-		cursor: pointer;
-		float: right;
-		right: 5px;
-	}
-}
-@media (min-width: 801px) {
-	.vistabasica {
-		position: relative;
-		width: 600px !important;
-		height: 450px !important;
-	}
-	.vistaminiatura {
-		position: relative;
-		width: 100px !important;
-		height: 100px !important;
-		cursor: pointer;
-	}
-}
 
-
+.vistabasica {
+	position: relative;
+	width: 500px !important;
+	height: 350px !important;
+	cursor: pointer;
+	
+}
+.vistaminiatura {
+	position: relative;
+	width: 100px !important;
+	height: 100px !important;
+	cursor: pointer;
+}
 .superior{
 	z-index: 99;
 }
 .imgpos{
 	position: absolute;
 }
+
