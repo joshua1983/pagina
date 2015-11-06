@@ -8,24 +8,81 @@
         <style type="text/css">
             .fondo{
                 background-color: rgb(202,3,190);
+                padding-right: 1%;
+            }
+            .visor{
+                background-color: white;
+                padding: 30px 30px 30px 30px;
+                height: 80%;
+            }
+            .personalizada{
+                background-color: rgb(0,156,161);
+            }
+            .subtitulos{
+                font-size: 2em;
+                color: white;
+            }
+            .borderPagina{
+                padding-left: 60px;
+                padding-bottom: 40px;
+            }
+            .logo{
+                position: absolute;
+                z-index: 99;
+                text-align: left;
             }
         </style>
     </head>
     <body class="fondo">
         
         <div class="responsive-fluid">
-            
-            <div class="col-xs-6">
-                <div class="row">
-                    <img src="tufab/editor/zapato_origin.png"></img>
-                </div>
-                <div class="row">
-                    <img src="tufab/editor/cuatrozapatillas.png"></img>
-                </div>
-            </div>
-            
-            <div class="col-col-xs-6">
+
+            <div class="row borderPagina">
                 
+
+                <div class="row" align="right">
+                    <div class="col-xs-11"></div>
+                    <div class="col-xs-1">
+                        <img class="img-responsive logo" src="tufab/editor/logoizquierda.png"></img>
+                    </div>
+                </div>
+
+                <div class="row" style="background-color: white">
+                
+                    <div class="col-xs-6">
+                        <div class="row" align="center">
+                            <p><img class="img-responsive visor" src="tufab/editor/zapato_origin.png"></img></p>
+                            <p><img class="img-responsive" src="tufab/editor/cuatrozapatillas.png"></img></p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xs-6 personalizada">
+                        <div class="row" align="center">
+                            <h3 class="subtitulos">Muestra Personalizada</h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <img src="tufab/editor/boton_material.png" alt="">
+                            </div>
+                            <div class="col-xs-4">
+                                <img src="tufab/editor/boton_estilos.png" alt="">
+                            </div>
+                            <div class="col-xs-4">
+                                <img src="tufab/editor/boton_tacon.png" alt="">
+                            </div>
+                            <p>&nbsp;</p>
+                        </div>
+                        <div class="row" align="center">
+                            <h3 class="subtitulos">Selecciona el Material</h3>
+                            <p><img class="img-responsive" src="tufab/editor/tabla_materiales.png" alt="">   </p>
+                        </div>
+                        <div class="row" align="center">
+                            <button class="btn-lg btn-primary">Guardar</button>
+                        </div>
+                    </div>
+
+                </div>           
+
             </div>
             
         </div>
