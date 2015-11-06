@@ -1,161 +1,33 @@
 
 $(document).ready(function (){
 
+    $("#img_boton_material").on("click",function(){
+        $("#img_tabla_opciones").attr("src","tufab/editor/tabla_materiales.png");
+        $("#div_subtitulo").html("Selecciona el material");
+        $("#img_boton_estilos").attr("src","tufab/editor/boton_estilos.png");
+        $("#img_boton_material").attr("src","tufab/editor/boton_material.png");
+        $("#img_boton_tacon").attr("src","tufab/editor/boton_tacon.png");
+        $("#div_zapato_visor").attr("src","tufab/editor/personalizado1.png");
+    });
 
-    
-     $("#sel_color").on('change',function(){
-        
-            
-         if (this.value == 0){
-            $("#img_pala").attr("src","");
-            $("#img_plantilla").attr("src","img/capellada/plantilla_4_0001.png");
-            $("#img_pala").attr("src","img/capellada/pala_4_0001.png");
-        }
-        
-        if (this.value == 1){
-            
-            $("#img_pala").attr("src","");
-            $("#img_plantilla").attr("src","img/capellada/plantilla_4_0001.png");
-            $("#img_pala").attr("src","img/capellada/pala_31_0001.png");
-        }
-        if (this.value == 2){
-            $("#img_pala").attr("src","img/capellada/pala_32_0001.png");
-            
-        }
+	$("#img_boton_estilos").on("click",function(){
+        $("#img_tabla_opciones").attr("src","tufab/editor/lista_estilos.png");
+        $("#div_subtitulo").html("Selecciona el estilo");
+        $("#img_boton_estilos").attr("src","tufab/editor/btn_estilo.png");
+        $("#img_boton_material").attr("src","tufab/editor/btn_materiales.png");
+        $("#img_boton_tacon").attr("src","tufab/editor/boton_tacon.png");
+        $("#div_zapato_visor").attr("src","tufab/editor/personalizado2.png");
+    });
+
+
+    $("#img_boton_tacon").on("click",function(){
+        $("#img_tabla_opciones").attr("src","tufab/editor/zapatillasblancas.png");
+        $("#div_subtitulo").html("Selecciona el tac\xf3n");
+        $("#img_boton_estilos").attr("src","tufab/editor/boton_estilos.png");
+        $("#img_boton_material").attr("src","tufab/editor/btn_materiales.png");
+        $("#img_boton_tacon").attr("src","tufab/editor/tacon.png");
+        $("#div_zapato_visor").attr("src","tufab/editor/personalizado3.png");
     });
     
     
 });
-
-
-// Al hacer click en el link de adornos
-
-function cambiarAdornos(){
-    // cargar las imagenes al hacer clic en adornos
-    $("#img_min_1").attr("src","img/min/adornos/correamercedes1.png");
-    $("#img_min_2").attr("src","img/min/adornos/correarita_4_0001.png");
-    $("#img_min_3").attr("src","img/min/adornos/correitabar1.png");
-    
-    $("#div_min_1").addClass("thumbnail");
-    $("#div_min_2").addClass("thumbnail");
-    $("#div_min_3").addClass("thumbnail");
-    
-    
-    // cuando haga click en la imagen
-    $("#img_min_1").unbind('click');
-    $("#img_min_1").on('click',function(){
-        $("#img_adorno1").attr("src","img/adornos/correamercedes_4_0001.png");
-        $("#img_adorno2").attr("src","img/adornos/hebillatobillo_119_0001.png");
-        ocultarMenu();
-    });
-    
-    
-    $("#img_min_2").unbind('click');
-    $("#img_min_2").on('click',function(){
-        $("#img_adorno1").attr("src","img/adornos/hebillaempeineyt_119_0000.png");
-        $("#img_adorno2").attr("src","img/adornos/correarita_4_0001.png");
-        ocultarMenu();
-    });
-    
-    $("#img_min_3").unbind('click');
-    $("#img_min_3").on('click',function(){
-        $("#img_adorno1").attr("src","img/adornos/hebillaempeineyt_119_0001.png");
-        $("#img_adorno2").attr("src","img/adornos/correatbar_4_0001.png");
-        ocultarMenu();
-    });
-}
-
-// Al hacer click en herrajes
-
-function cambiarHerrajes(){
-    $("#img_min_1").attr("src","img/min/herrajes/ad1_66_0001.png");
-    $("#img_min_2").attr("src","img/min/herrajes/ad2_3_0001.png");
-    $("#img_min_3").attr("src","img/min/herrajes/ad6_4_0001.png");
-    
-    $("#div_min_1").addClass("thumbnail");
-    $("#div_min_2").addClass("thumbnail");
-    $("#div_min_3").addClass("thumbnail");
-    
-    // cuando haga click en la imagen
-    $("#img_min_1").unbind('click');
-    $("#img_min_1").on('click',function(){
-        $("#img_accessorios").attr("src","img/accesorios/ad1_66_0001.png");
-        ocultarMenu();
-    });
-    
-    
-    $("#img_min_2").unbind('click');
-    $("#img_min_2").on('click',function(){
-        $("#img_accessorios").attr("src","img/accesorios/ad2_3_0001.png");
-        ocultarMenu();
-    });
-    
-    $("#img_min_3").unbind('click');
-    $("#img_min_3").on('click',function(){
-        $("#img_accessorios").attr("src","img/accesorios/ad6_4_0001.png");
-        ocultarMenu();
-    });
-}
-
-// Al hacer click en capelladas
-
-function cambiarCapellada(){
-    $("#img_min_1").attr("src","img/min/capellada/pala_4_0001.png");
-    $("#img_min_2").attr("src","img/min/capellada/pala_5_0001.png");
-    $("#img_min_3").attr("src","img/min/capellada/pala_7_0001.png");
-    
-    $("#div_min_1").addClass("thumbnail");
-    $("#div_min_2").addClass("thumbnail");
-    $("#div_min_3").addClass("thumbnail");
-    
-    // desvinculo la funcion para no acumular eventos
-    $("#img_min_1").unbind('click');
-    
-    // cuando haga click en la imagen
-    $("#img_min_1").on('click',function(){
-        $("#img_pala").attr("src","");
-        $("#img_plantilla").attr("src","img/capellada/plantilla_4_0001.png");
-        $("#img_pala").attr("src","img/capellada/pala_4_0001.png");
-        ocultarMenu();
-    });
-    
-    
-    $("#img_min_2").unbind('click');
-    $("#img_min_2").on('click',function(){
-        $("#img_pala").attr("src","");
-        
-        $("#img_plantilla").attr("src","img/capellada/plantilla_4_0001.png");
-        $("#img_pala").attr("src","img/capellada/pala_5_0001.png");
-        ocultarMenu();
-        
-    });
-    
-    $("#img_min_3").unbind('click');
-    $("#img_min_3").on('click',function(){
-        $("#img_pala").attr("src","");
-        
-        $("#img_plantilla").attr("src","img/capellada/plantilla_5_0001.png");
-        $("#img_pala").attr("src","img/capellada/pala_7_0001.png");
-        ocultarMenu();
-        
-    });
-}
-
-function ocultarMenu(){
-    if (isMobile() == 1){
-        $("#img_min_1").attr("src","");
-        $("#img_min_2").attr("src","");
-        $("#img_min_3").attr("src","");
-    }
-}
-
-function isMobile(){
-    return (
-        (navigator.userAgent.match(/Android/i)) ||
-        (navigator.userAgent.match(/webOS/i)) ||
-        (navigator.userAgent.match(/iPhone/i)) ||
-        (navigator.userAgent.match(/iPod/i)) ||
-        (navigator.userAgent.match(/iPad/i)) ||
-        (navigator.userAgent.match(/BlackBerry/))
-    );
-}
