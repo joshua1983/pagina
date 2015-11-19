@@ -9,8 +9,13 @@ function cargarFabricas(){
             console.log('No se puede contactar con el servidor.'+xhr.responseText);
         },
         success: function(data){
+            console.log(data);
             var plantilla_datos = _.template($("#tpl_fabricas").html(),  { fabricas: data });
             $('#div_data').html(plantilla_datos);
         }
     });
+}
+
+function salir(){
+
 }

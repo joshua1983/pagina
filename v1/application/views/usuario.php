@@ -2,6 +2,19 @@
 	.navbar{
 		background-color: rgb(202,3,190);
 	}
+	.layer {
+		background-color: rgba(0, 156, 161, 0.2);
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		height: 100%;
+	}
+	body{
+		background-image: url("img/fabricas/stand.png");
+        background-size: cover;	
+	}
 </style>
 
 <nav class="navbar navbar-default">
@@ -10,7 +23,7 @@
 		<div class="navbar-header">
 
 			<div class="row">
-				<div class="col-xs-11">
+				<div class="col-xs-10">
 					<a style="color: white" class="navbar-brand" href="http://tufabrica.co">
 						TuFabrica.co
 					</a>
@@ -26,6 +39,9 @@
 				    	</p>
 			    	</div>
 		    	</div>
+				<div class="col-xs-1">
+					<a style="color: white" href="#" class="navbar-link" onclick="javascript:salir()">Salir</a>
+				</div>
 		    	<div class="col-xs-1">
 					<img src=<?php echo base_url("img/logo_s.png") ?> alt="TuFabrica">
 				</div>
@@ -40,10 +56,12 @@
 <div class="row">
 
 	<div id="div_data">
-		
+		&nbsp;
 	</div>
 	
 </div>
+
+
 
 <script id="tpl_fabricas" type="text/template">
 	<%
