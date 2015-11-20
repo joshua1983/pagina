@@ -40,7 +40,7 @@
 			    	</div>
 		    	</div>
 				<div class="col-xs-1">
-					<a style="color: white" href="#" class="navbar-link" onclick="javascript:salir()">Salir</a>
+					<a style="color: white" href=<?php echo base_url("login/salir") ?> class="navbar-link">Salir</a>
 				</div>
 		    	<div class="col-xs-1">
 					<img src=<?php echo base_url("img/logo_s.png") ?> alt="TuFabrica">

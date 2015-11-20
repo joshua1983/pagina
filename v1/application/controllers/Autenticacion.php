@@ -72,5 +72,6 @@ class Autenticacion extends CI_Controller {
 	public function salir(){
 		$datos_usuario = array('usuario', 'password', 'tipo', 'nombre', 'login');
 		$this->session->unset_userdata($datos_usuario);
+		$this->load->view("login");
 	}
 }
