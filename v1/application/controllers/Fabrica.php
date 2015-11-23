@@ -32,7 +32,7 @@ class Fabrica extends CI_Controller {
 		if (isset($_POST['fabrica']) || isset($_GET['fabrica'])){
 			$fabID = (isset($_POST['fabrica'])) ? $_POST["fabrica"]: $_GET["fabrica"];
 
-			$query = $this->db->query("select id, nombre, ruta from lineas where fabrica = ".$this->db->escape($fabID)."");
+			$query = $this->db->query("select id, nombre, ruta, fecha_lanz, fabrica from lineas where fabrica = ".$this->db->escape($fabID)."");
 			echo json_encode($query->result_array());
 
 		}else{

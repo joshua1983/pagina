@@ -20,8 +20,8 @@ class Autenticacion extends CI_Controller {
     		$data = array(
     			"nombre" => $this->session->userdata('nombre')
     			);
-    		$this->load->view('plantillas/encabezado');
-    		$this->load->view('usuario',$data);	
+    		$this->load->view('plantillas/encabezado',$data);
+    		$this->load->view('usuario');	
     		$this->load->view('plantillas/pie');	
     	}else{
     		$this->load->view('login');
@@ -55,8 +55,8 @@ class Autenticacion extends CI_Controller {
 				$data = array(
     				"nombre" => $this->session->userdata('nombre')
     			);
-				$this->load->view('plantillas/encabezado',$this->session->has_userdata('nombre'));
-    			$this->load->view('usuario',$data);	
+				$this->load->view('plantillas/encabezado',$data);
+    			$this->load->view('usuario');	
     			$this->load->view('plantillas/pie');
 			}else{
 				$this->session->set_flashdata('loginEstado','Usuario o password incorrecto');
