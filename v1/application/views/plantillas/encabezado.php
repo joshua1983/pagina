@@ -72,16 +72,18 @@
 	<div class="row fondo_usuario">
 		
 		<div class="col-xs-6">
-			Usuario:  <a href="#" class="navbar-link">
+			Usuario:  
 			<?php 
 			if (isset($nombre))
-				echo $nombre;
+				echo '<a href="#" class="navbar-link">' . $nombre . '</a>';
 			else
-				echo "No registrado";
+				echo '<a href="'.base_url("login").'" class="navbar-link">No registrado</a>';
 			?></a>
 		</div>
 		<div class="col-xs-6" align="right">
-			<a href=<?php echo base_url("login/salir") ?> class="navbar-link">Salir</a>
+		<?php if (isset($nombre)){ ?>
+			<a href=<?php  echo base_url("login/salir") ?> class="navbar-link">Salir</a>
+		<?php } ?>
 		</div>
 
 	</div>

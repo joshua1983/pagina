@@ -22,7 +22,9 @@ class Usuario extends CI_Controller {
 
 	public function editarZapato($idFabrica, $idLinea){
 		$data = array(
-    			"nombre" => $this->session->userdata('nombre')
+    			"nombre" => $this->session->userdata('nombre'),
+    			"idFabrica" => $idFabrica,
+    			"idLinea" => $idLinea
     		);
 		$this->load->view('plantillas/encabezado',$data);
 		$this->load->view('editor');	
