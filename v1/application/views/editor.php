@@ -60,6 +60,11 @@
 				</div>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-xs-12" align="center">
+				<button class="btn btn-success">Guardar</button>
+			</div>
+		</div>
 	</div>
 
 	<script type="text/javascript">
@@ -68,6 +73,7 @@
 			$(this).addClass("active");
 		});
 		initZapato(<?php echo $idFabrica ?>, <?php echo $idLinea ?>);
+		cargarColores();
 	</script>
 </div>
 
