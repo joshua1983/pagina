@@ -37,6 +37,11 @@
 		background-image: url(<?php echo base_url("img/fabricas/stand.png")?>) ;
         background-size: cover;	
 	}
+	.resaltar{
+		background-color: #B404AE;
+		padding: 5px 0;
+		text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+	}
 </style>
 <div class="container-fluid">
 	<div class="row">
@@ -53,10 +58,18 @@
 							<div class="col-xs-11">
 								<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							    	<ul class="nav navbar-nav">
-							    		<li><a style="color: white" href="#" onclick="javascript:cargarFabricas()">1. Selecciona tu Fabrica</a></li>
-							    		<li><a style="color: white" href="#">2. Selecciona el Modelo</a></li>
-							    		<li><a style="color: white" href="#">3. Modifica tu modelo</a></li>
-							    		<li><a style="color: white" href="#">4. Haz tu pedido</a></li>
+							    		<li><a style="color: white;" href="<?php echo base_url('usuario') ?>">
+							    			<span id="mnuOpc1"> 1. Selecciona tu Fabrica</span>
+							    		</a></li>
+							    		<li><a style="color: white" href="#">
+							    			<span id="mnuOpc2">2. Selecciona el Modelo</span>
+							    		</a></li>
+							    		<li><a style="color: white" href="#">
+							    			<span id="mnuOpc3">3. Modifica tu modelo</span>
+							    		</a></li>
+							    		<li><a style="color: white" href="#">
+							    			<span id="mnuOpc4">4. Haz tu pedido</span>
+							    		</a></li>
 							    	</ul>
 						    	</div>
 					    	</div>

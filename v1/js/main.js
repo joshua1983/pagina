@@ -6,6 +6,11 @@ var dataRuta = {
 }
 
 function cargarFabricas(){
+    $("#mnuOpc1").removeClass("resaltar");
+    $("#mnuOpc2").removeClass("resaltar");
+    $("#mnuOpc3").removeClass("resaltar");
+    $("#mnuOpc4").removeClass("resaltar");
+    $("#mnuOpc1").addClass("resaltar");
     $.ajax({
         type: 'GET',
         url: IP_SERVER + '/Fabrica/getFabricas',
@@ -22,6 +27,11 @@ function cargarFabricas(){
 }
 
 function cargarLineas(idFabrica, nombreFabrica){
+    $("#mnuOpc1").removeClass("resaltar");
+    $("#mnuOpc2").removeClass("resaltar");
+    $("#mnuOpc3").removeClass("resaltar");
+    $("#mnuOpc4").removeClass("resaltar");
+    $("#mnuOpc2").addClass("resaltar");
     dataRuta.fabrica = nombreFabrica;
     $.ajax({
         type: 'POST',

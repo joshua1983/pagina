@@ -30,7 +30,11 @@
       }
 </style>
 <script>
-    
+    $("#mnuOpc1").removeClass("resaltar");
+    $("#mnuOpc2").removeClass("resaltar");
+    $("#mnuOpc3").removeClass("resaltar");
+    $("#mnuOpc4").removeClass("resaltar");
+    $("#mnuOpc3").addClass("resaltar");
 </script>
 
 <div class="row">

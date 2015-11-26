@@ -1,4 +1,11 @@
 
+<script type="text/javascript">
+	$("#mnuOpc1").removeClass("resaltar");
+    $("#mnuOpc2").removeClass("resaltar");
+    $("#mnuOpc3").removeClass("resaltar");
+    $("#mnuOpc4").removeClass("resaltar");
+    $("#mnuOpc4").addClass("resaltar");
+</script>
 <div class="row">
 	<h3>Resumen del pedido</h3>
 </div>
@@ -14,7 +21,7 @@
 			<div class="col-xs-6">
 				<h4>
 					Precio: <span class="label label-primary"><?php echo $precio ?></span>
-					<?php echo form_input(array('name' => 'txtPrecio', 'id' => 'txtPrecio', 'class' => 'form-control', 'type' => 'hidden', 'value' => $precio)) ?>
+					
 				</h4>
 			</div>
 		</div>
@@ -22,6 +29,8 @@
 	</div>
 	<div class="col-xs-6">
 	<?php echo form_open(base_url('comprar/cerrarCompra')) ?>
+	<?php echo form_input(array('name' => 'txtPrecio', 'id' => 'txtPrecio', 'class' => 'form-control', 'type' => 'hidden', 'value' => $precio)) ?>
+	<?php echo form_input(array('name' => 'txtZapato', 'id' => 'txtZapato', 'class' => 'form-control', 'type' => 'hidden', 'value' => $zapato)) ?>
 		<div class="form-group">
 			<label for="txtAlmacen">Nombre del almacen</label>
 			<?php echo form_input(array('name' => 'txtAlmacen', 'id' => 'txtAlmacen', 'class' => 'form-control', 'type' => 'text')) ?>
