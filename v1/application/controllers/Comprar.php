@@ -69,7 +69,7 @@ class Comprar extends CI_Controller {
 			*/
 			$this->load->library('email');
 
-			$this->email->from('tufabricaco@gmail.com', 'Bot TuFabrica');
+			$this->email->from('josue.barrios@gmail.com', 'Bot TuFabrica');
 			$this->email->to('tufabricaco@gmail.com');
 			$this->email->cc($correo);
 			

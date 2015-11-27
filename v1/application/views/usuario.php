@@ -18,7 +18,7 @@
 		_.each(fabricas, function(data){
 			%>
 			<a href="#" onclick ="javascript:cargarLineas(<%= data.id %>, '<%= data.nombre %>')">
-				<img src="<%= data.ruta %>" alt="fabricas zapatos bucaramanga <%= data.nombre%>">
+				<img src="<%= IP_SERVER + '/' + data.ruta %>" alt="fabricas zapatos bucaramanga <%= data.nombre%>">
 			</a>
 			<%
 		});
@@ -47,14 +47,14 @@
 
 			<div class="panel-body"
 				<div class="row" align="center">
-					<img src="<%= data.ruta %>" alt="tendencias zapatos bucaramanga <%= data.nombre%>">
+					<img src="<%=  IP_SERVER + '/' + data.ruta %>" alt="tendencias zapatos bucaramanga <%= data.nombre%>">
 				</div>
 				<div class="row" align="center">
 					<div class="col-xs-6">
-						<a  class="btn btn-success" href="comprar/resumenout/<%= data.id%>">Comprar </a>
+						<a  class="btn btn-success" href="<%=  IP_SERVER + '/' %>comprar/resumenout/<%= data.id%>">Comprar </a>
 					</div>
 					<div class="col-xs-6">
-						<a  class="btn btn-primary" href="usuario/editarZapato/<%= data.fabrica%>/<%= data.id%>">Modificar </a>
+						<a  class="btn btn-primary" href="<%=  IP_SERVER + '/' %>usuario/editarZapato/<%= data.fabrica%>/<%= data.id%>">Modificar </a>
 					</div>
 				</div>
 				</br>
