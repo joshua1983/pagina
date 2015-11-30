@@ -56,9 +56,9 @@ class Comprar extends CI_Controller {
 			// registrar el pedido para el almacen
 			$dataInsert = array(
 				"almacen" => $res1["id"],
-				"zapato" => $this->db->escape($zapato),
-				"cantidad" => $this->db->escape($cantidad),
-				"precio" => $this->db->escape($precio)
+				"zapato" => $zapato,
+				"cantidad" => $cantidad,
+				"precio" => $precio
 				);
 			$this->db->insert("pedidos", $dataInsert);
 
@@ -84,6 +84,53 @@ class Comprar extends CI_Controller {
 
 		}else{
 			// insertar almacen nuevo
+
+			$dataInsert = array(
+				"nombre" => $nombre_almacen,
+				"correo" => $correo
+				);
+			$this->db->insert("almacen", $dataInsert);
+			$idAlmacen = $this->db->insert_id();
+
+			$consultaLogin = "select id from login where usuario =?";
+			$query = $this->db->query($consultaLogin, array($correo));
+			if (count($query->row_array()) == 0){
+				$dataAlmacen = array(
+					"usuario" => $correo,
+					"nombre" => $nombre_almacen,
+					"password" => "123"
+					);
+				$this->db->insert("login", $dataAlmacen);
+				
+			}
+			// registrar el pedido para el almacen
+			$dataInsert = array(
+				"almacen" => $idAlmacen,
+				"zapato" => $zapato,
+				"cantidad" => $cantidad,
+				"precio" => $precio
+				);
+			$this->db->insert("pedidos", $dataInsert);
+
+			$consultaZapato = $this->db->query("select descripcion, render from zapato where id = ".$this->db->escape($zapato)."");
+			$dataZapatos = $consultaZapato->row_array();
+			/*
+			* Enviar correo del pedido
+			*/
+			$this->load->library('email');
+
+			$this->email->from('josue.barrios@gmail.com', 'Bot TuFabrica');
+			$this->email->to('tufabricaco@gmail.com');
+			$this->email->cc($correo);
+			
+			$this->email->subject('Nuevo pedido del almacen: '. $nombre_almacen);
+			$this->email->message('Zapato: '. $dataZapatos["descripcion"]. " Cantidad: ". $cantidad. " Precio: ". $precio. " Total: ". $precio * $cantidad);
+
+			$this->email->send();
+
+			$this->load->view('plantillas/encabezado',$this->session->has_userdata('nombre'));
+			$this->load->view('fincompra');
+			$this->load->view('plantillas/pie');
 
 		}
 

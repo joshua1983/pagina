@@ -16,16 +16,28 @@ class Autenticacion extends CI_Controller {
     }
 
     public function index(){
+    	/*
     	if ($this->session->has_userdata('nombre')){
+    		
+    		$selectPedidos = "select c.render, b.cantidad, b.precio, b.fecha from almacen a, pedidos b, zapato c where a.correo = ? and a.id = b.almacen and b.zapato = c.id";
+
+    		$query = $this->db->query($selectPedidos, array($this->session->userdata('usuario')));
+
+    		$dataPedidos = $query->result_array();
+    		    		
     		$data = array(
-    			"nombre" => $this->session->userdata('nombre')
+    			"nombre" => $this->session->userdata('nombre'),
+    			"pedidos" => $dataPedidos
     			);
     		$this->load->view('plantillas/encabezado',$data);
-    		$this->load->view('usuario');	
+    		$this->load->view('home', $data);	
     		$this->load->view('plantillas/pie');	
     	}else{
     		$this->load->view('login');
     	}
+    	*/
+
+    	$this->load->view('login');
     }
 	
 	public function validar(){

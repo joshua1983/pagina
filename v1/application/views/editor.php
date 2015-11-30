@@ -53,7 +53,6 @@
 					<div class="panel-heading"></div>
 					<div class="panel-body">
 						<ul class="nav nav-pills">
-							<li role="presentation" id="opc1" class="active"><a href="#" onclick="javascript:cargarColores()">Color</a></li>
 							<li role="presentation" id="opc2"><a href="#" onclick="javascript:cargarCapelladas()">Capellada</a></li>
 							<li role="presentation" id="opc3"><a href="#" onclick="javascript:cargarAdornos()">Adornos</a></li>
 						</ul>		
@@ -77,9 +76,14 @@
 			$(this).addClass("active");
 		});
 		initZapato(<?php echo $idFabrica ?>, <?php echo $idLinea ?>);
-		cargarColores();
+		cargarCapelladas();
+		render();
 	</script>
 </div>
 
 
 </div>
+
+<script type="text/template" id="tpl_render">
+	<img src="<%=  IP_SERVER + '/' + data.render %>" >
+</script>

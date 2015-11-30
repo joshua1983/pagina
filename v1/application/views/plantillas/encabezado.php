@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<title>TuFabrica.co - Usuario: </title>
 	<script src=<?php echo base_url("js/jquery.js") ?>></script>
+	<script src=<?php echo base_url("js/bootstrap.min.js") ?>></script>
 	<script src=<?php echo base_url("js/editor.js") ?>></script>
 	<script src=<?php echo base_url("js/three.js") ?>></script>
 	<script src=<?php echo base_url("js/shifty.min.js") ?>></script>
@@ -46,39 +47,33 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-xs-12">
-			<nav class="navbar navbar-default">
-				<div class="container-fluid">
-					
-					<div class="navbar-header">
-
-						<div class="row">
-							<div class="col-xs-1">
-								<img src=<?php echo base_url("img/logo_s.png") ?> alt="TuFabrica">
-							</div>
-							<div class="col-xs-11">
-								<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-							    	<ul class="nav navbar-nav">
-							    		<li><a style="color: white;" href="<?php echo base_url('usuario') ?>">
-							    			<span id="mnuOpc1"> 1. Selecciona tu Fabrica</span>
-							    		</a></li>
-							    		<li><a style="color: white" href="#">
-							    			<span id="mnuOpc2">2. Selecciona el Modelo</span>
-							    		</a></li>
-							    		<li><a style="color: white" href="#">
-							    			<span id="mnuOpc3">3. Modifica tu modelo</span>
-							    		</a></li>
-							    		<li><a style="color: white" href="#">
-							    			<span id="mnuOpc4">4. Haz tu pedido</span>
-							    		</a></li>
-							    	</ul>
-						    	</div>
-					    	</div>
-						</div>
-						
-					</div>
-
+			<nav class="navbar navbar-default" role="navegation">
+				<div class="col-xs-1">
+					<img src=<?php echo base_url("img/logo_s.png") ?> alt="TuFabrica">
 				</div>
-							
+				<div class="col-xs-11">
+					<div class="navbar-header">
+						<button type="button" class="btn navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+						Menu
+						</button>
+					</div>
+					<div class="collapse navbar-collapse navbar-ex1-collapse" id="bs-example-navbar-collapse-1">
+				    	<ul class="nav navbar-nav">
+				    		<li><a style="color: white;" href="<?php echo base_url('usuario') ?>">
+				    			<span id="mnuOpc1"> 1. Selecciona tu Fabrica</span>
+				    		</a></li>
+				    		<li><a style="color: white" href="#">
+				    			<span id="mnuOpc2">2. Selecciona el Modelo</span>
+				    		</a></li>
+				    		<li><a style="color: white" href="#">
+				    			<span id="mnuOpc3">3. Modifica tu modelo</span>
+				    		</a></li>
+				    		<li><a style="color: white" href="#">
+				    			<span id="mnuOpc4">4. Haz tu pedido</span>
+				    		</a></li>
+				    	</ul>
+					</div>
+		    	</div>		
 			</nav>
 		</div>
 	</div>

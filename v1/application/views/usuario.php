@@ -1,4 +1,9 @@
 
+<style>
+.portfolio-item {
+    margin-bottom: 25px;
+}
+</style>
 <div class="row">
 
 		<div id="div_data">
@@ -27,9 +32,10 @@
 </script>
 
 <script id="tpl_lineas" type="text/template">
-
+	<div class="row">
 	<%
 		var year_lanz = '';
+
 		_.each(lineas, function(data){
 
 			if (year_lanz != data.fecha_lanz.split('-')[0]){
@@ -39,32 +45,26 @@
 				<%
 			}
 			%>
-			<div class="panel panel-warning">
-
-			<div class="panel-heading" align="center">
-				<h3><%= datosRuta.fabrica%> - <%= data.nombre %></h3>
-			</div>
-
-			<div class="panel-body"
-				<div class="row" align="center">
-					<img src="<%=  IP_SERVER + '/' + data.ruta %>" alt="tendencias zapatos bucaramanga <%= data.nombre%>">
+			
+			<div class="col-md-4 portfolio-item">
+				
+				<img class="img-responsive" src="<%=  IP_SERVER + '/' + data.ruta %>" alt="tendencias zapatos bucaramanga <%= data.nombre%>">
+				<div class="caption">
+					<h3><%= datosRuta.fabrica%> - <%= data.nombre%></h3>
+					<p>
+						<a href="<%=  IP_SERVER + '/' %>comprar/resumenout/<%= data.id%>" class="btn btn-primary" role="button">Comprar</a>
+						<a href="<%=  IP_SERVER + '/' %>usuario/editarZapato/<%= data.fabrica%>/<%= data.id%>" class="btn btn-default" role="button">Modificar</a>
+					</p>
 				</div>
-				<div class="row" align="center">
-					<div class="col-xs-6">
-						<a  class="btn btn-success" href="<%=  IP_SERVER + '/' %>comprar/resumenout/<%= data.id%>">Comprar </a>
-					</div>
-					<div class="col-xs-6">
-						<a  class="btn btn-primary" href="<%=  IP_SERVER + '/' %>usuario/editarZapato/<%= data.fabrica%>/<%= data.id%>">Modificar </a>
-					</div>
-				</div>
-				</br>
+				
 			</div>
+			
 
-			</div>
 			<%
 		});
 
 	%>
+	</div>
 
 </script>
 

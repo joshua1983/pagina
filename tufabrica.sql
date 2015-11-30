@@ -114,7 +114,7 @@ CREATE TABLE `pedidos` (
   `zapato` int(11) DEFAULT NULL,
   `cantidad` int(11) DEFAULT NULL,
   `precio` int(11) DEFAULT NULL,
-  `fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `fecha` datetime ,
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
@@ -122,7 +122,7 @@ CREATE TABLE `pedidos` (
 # Data for table "pedidos"
 #
 
-INSERT INTO `pedidos` VALUES (5,1,0,0,0,'2015-11-26 16:48:42');
+
 
 #
 # Structure for table "zapato"

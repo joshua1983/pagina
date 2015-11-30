@@ -2,7 +2,8 @@ var modeloZapato = {
   zuela : "",
   capellada: "",
   adorno: "",
-  color: ""
+  color: "",
+  render: ""
 };
 
 function initZapato(idFabrica, idLinea){
@@ -39,7 +40,9 @@ function render(){
   Dibujar el zapato con los valores de modeloZapato
   sobre la div zapato-container
   */
-
+  modeloZapato.render = "img/yp/yp_1.png";
+  var plantilla_datos = _.template($("#tpl_render").html());
+  $('#zapato-container').html(plantilla_datos(  { modeloZapato: data }));
 
 }
 
