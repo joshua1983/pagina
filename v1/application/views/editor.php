@@ -1,3 +1,4 @@
+
 <style>
 	.navbar{
 		background-color: rgb(202,3,190);
@@ -28,6 +29,20 @@
         width: 300px;
         float: left;
       }
+	.vistabasica {
+		position: relative;
+		width: 500px !important;
+		height: 350px !important;
+		cursor: pointer;
+
+	}
+	
+	.superior{
+		z-index: 99;
+	}
+	.imgpos{
+		position: absolute;
+	}
 </style>
 <script>
     $("#mnuOpc1").removeClass("resaltar");
@@ -70,20 +85,39 @@
 		</div>
 	</div>
 
-	<script type="text/javascript">
-		$(".nav li").on("click", function() {
-			$(".nav li").removeClass("active");
-			$(this).addClass("active");
-		});
-		initZapato(<?php echo $idFabrica ?>, <?php echo $idLinea ?>);
-		cargarCapelladas();
-		render();
-	</script>
+
 </div>
 
 
 </div>
 
 <script type="text/template" id="tpl_render">
-	<img src="<%=  IP_SERVER + '/' + data.render %>" >
+	<img class="imgpos img-responsive" src="<%=  IP_SERVER + '/' + data.render %>" >
+	<img class="imgpos img-responsive" src="<%=  IP_SERVER + '/' + data.capellada %>" >
+</script>
+
+<script type="text/template" id="tpl_capelladas">
+		<%
+		
+		_.each(capelladas, function(data){
+			%>
+			<a href="#" onclick="javascript:cambiarCapellada('<%=data.render%>')">
+			<img height="30%" width="30%" src="<%=  IP_SERVER + '/' + data.render %>" />
+			</a>
+
+
+			<%
+		});
+			%>
+</script>
+
+<script type="text/javascript">
+	$(".nav li").on("click", function() {
+		$(".nav li").removeClass("active");
+		$(this).addClass("active");
+	});
+	$("#opc2").addClass("active");
+	cargarCapelladas(<?php echo $idFabrica ?>, <?php echo $idLinea ?>);
+	initZapato(<?php echo $idFabrica ?>, <?php echo $idLinea ?>);
+	render();
 </script>

@@ -39,4 +39,15 @@ class Fabrica extends CI_Controller {
 			echo "Fabrica no encontrada";
 		}
 	}
+
+	public function getCapelladas(){
+		if (isset($_POST["fabrica"]) || isset($_GET["fabrica"])){
+			$fabID = (isset($_POST['fabrica'])) ? $_POST["fabrica"]: $_GET["fabrica"];
+
+			$query = $this->db->query("select id, nombre, render from capelladas where fabrica = ".$this->db->escape($fabID)."");
+			echo json_encode($query->result_array());
+		}else{
+			echo '{"cantidad": 0}';
+		}
+	}
 }
