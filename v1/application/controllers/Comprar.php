@@ -40,6 +40,36 @@ class Comprar extends CI_Controller {
 		}
 	}
 
+	public function resumenoutmod(){
+		if (   (isset($_POST["plataforma"]) || isset($_GET["plataforma"])) 
+			&& (isset($_POST["capellada"]) || isset($_GET["capellada"]))
+			&& (isset($_POST["precio"]) || isset($_GET["precio"])) 
+			) {
+			$plat = (isset($_POST['plataforma'])) ? $_POST["plataforma"]: $_GET["plataforma"];
+			$cap = (isset($_POST['capellada'])) ? $_POST["capellada"]: $_GET["capellada"];
+			$precio = (isset($_POST['precio'])) ? $_POST["precio"]: $_GET["precio"];
+
+
+			$query_plat = $this->db->query("select render from plataformas where id = ".$plat);
+			$datos_plat = $query_plat->row_array();
+
+			$query_cap = $this->db->query("select render from capelladas where id = ".$cap);
+			$datos_cap = $query_cap->row_array();
+
+
+			$data = array(
+				"zuela" => $datos_plat["render"],
+				"capellada" => $datos_cap["render"],
+				"precio" => $precio
+				);
+			$this->load->view('plantillas/encabezado',$this->session->has_userdata('nombre'));
+			$this->load->view('resumen', $data);
+			$this->load->view('plantillas/pie');
+		}else{
+			echo '{"cantidad": 0}';
+		}
+	}
+
 	public function cerrarCompra(){
 		/*
 		Registrar el almacen si no existe

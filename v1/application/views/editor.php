@@ -68,8 +68,8 @@
 					<div class="panel-heading"></div>
 					<div class="panel-body">
 						<ul class="nav nav-pills">
-							<li role="presentation" id="opc2"><a href="#" onclick="javascript:cargarCapelladas()">Capellada</a></li>
-							<li role="presentation" id="opc3"><a href="#" onclick="javascript:cargarAdornos()">Adornos</a></li>
+							<li role="presentation" id="opc2"><a href="#" onclick="javascript:cargarCapelladas(<?php echo $idFabrica ?>, <?php echo $idLinea ?>)">Capellada</a></li>
+							<li role="presentation" id="opc3"><a href="#" onclick="javascript:cargarPlataformas(<?php echo $idFabrica ?>, <?php echo $idLinea ?>)">Plataformas</a></li>
 						</ul>		
 						<div id="data-opciones">
 							
@@ -80,7 +80,7 @@
 		</div>
 		<div class="row">
 			<div class="col-xs-12" align="center">
-				<button class="btn btn-success">Guardar</button>
+				<button onclick="javascript:continuar()" class="btn btn-success">Guardar</button>
 			</div>
 		</div>
 	</div>
@@ -92,8 +92,8 @@
 </div>
 
 <script type="text/template" id="tpl_render">
-	<img class="imgpos img-responsive" src="<%=  IP_SERVER + '/' + data.render %>" >
-	<img class="imgpos img-responsive" src="<%=  IP_SERVER + '/' + data.capellada %>" >
+	<img class="imgpos " src="<%=  IP_SERVER + '/' + data.zuela %>" >
+	<img class="imgpos " src="<%=  IP_SERVER + '/' + data.capellada %>" >
 </script>
 
 <script type="text/template" id="tpl_capelladas">
@@ -101,7 +101,21 @@
 		
 		_.each(capelladas, function(data){
 			%>
-			<a href="#" onclick="javascript:cambiarCapellada('<%=data.render%>')">
+			<a href="#" onclick="javascript:cambiarCapellada('<%=data.id%>','<%=data.render%>')">
+			<img height="30%" width="30%" src="<%=  IP_SERVER + '/' + data.render %>" />
+			</a>
+
+
+			<%
+		});
+			%>
+</script>
+<script type="text/template" id="tpl_plataformas">
+		<%
+		
+		_.each(plataformas, function(data){
+			%>
+			<a href="#" onclick="javascript:cambiarZuela('<%=data.id%>','<%=data.render%>')">
 			<img height="30%" width="30%" src="<%=  IP_SERVER + '/' + data.render %>" />
 			</a>
 

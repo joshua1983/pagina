@@ -13,7 +13,13 @@
 	<div class="col-xs-6">
 		<div class="row">
 			<div class="col-xs-6">
-				<h3><?php echo $descripcion ?></h3>
+				<h3><?php 
+					if (isset($descripcion)){
+						echo $descripcion;
+					}else{
+						echo "Personalizado";
+					} 
+					?></h3>
 			</div>
 			<div class="col-xs-6">
 				<h3>
@@ -23,7 +29,19 @@
 			</div>
 		</div>
 		<div class="row">
-			<img class="img-responsive" src="<?php echo base_url($render) ?>" alt="<?php echo $descripcion ?>">	
+			<?php 
+			if (isset($render)){
+				?>
+					<img class="img-responsive" src="<?php echo base_url($render) ?>" alt="<?php echo $descripcion ?>">	
+				<?php
+			}else{
+				?>
+					<img class="imgpos " src="<?php  echo base_url($zuela) ?> " >
+					<img class="imgpos " src="<?php  echo base_url($capellada) ?> " >
+				<?php
+			}
+			?>
+			
 		</div>
 		
 	</div>
@@ -35,7 +53,11 @@
 		<div class="panel-body">
 			<?php echo form_open(base_url('comprar/cerrarCompra')) ?>
 			<?php echo form_input(array('name' => 'txtPrecio', 'id' => 'txtPrecio', 'class' => 'form-control', 'type' => 'hidden', 'value' => $precio)) ?>
-			<?php echo form_input(array('name' => 'txtZapato', 'id' => 'txtZapato', 'class' => 'form-control', 'type' => 'hidden', 'value' => $zapato)) ?>
+			<?php 
+				if (isset($zapato)){
+					echo form_input(array('name' => 'txtZapato', 'id' => 'txtZapato', 'class' => 'form-control', 'type' => 'hidden', 'value' => $zapato)); 
+				}
+			?>
 				<div class="form-group">
 					<label for="txtAlmacen">Nombre del almacen</label>
 					<?php echo form_input(array('name' => 'txtAlmacen', 'id' => 'txtAlmacen', 'class' => 'form-control', 'type' => 'text')) ?>
